@@ -25,4 +25,7 @@ const otpSchema = new mongoose.Schema({
   }
 });
 
+// Add compound index for better query performance
+otpSchema.index({ userId: 1, isUsed: 1 });
+
 module.exports = mongoose.model('OTP', otpSchema);

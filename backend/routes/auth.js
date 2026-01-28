@@ -116,6 +116,9 @@ router.post('/login', [
         });
         await otpRecord.save();
 
+        // Log OTP to console for development/testing
+        console.log(`\n🔐 OTP for ${user.email}: ${otp}\n`);
+
         // Send OTP email
         await sendOTPEmail(user.email, otp, user.firstName);
 
@@ -201,11 +204,27 @@ router.post('/verify-otp', [
     }
 
     // Find OTP record
+    console.log(`\n🔍 Verifying OTP for userId: ${decoded.id}`);
+    console.log(`📝 Received OTP: "${otp}" (type: ${typeof otp}, length: ${otp.length})`);
+    
     const otpRecord = await OTP.findOne({
       userId: decoded.id,
       otp: otp,
       isUsed: false
     });
+
+    console.log(`📊 OTP Record found: ${otpRecord ? 'YES' : 'NO'}`);
+    if (otpRecord) {
+      console.log(`✅ Stored OTP: "${otpRecord.otp}" (type: ${typeof otpRecord.otp})`);
+    } else {
+      // Check if there's any OTP for this user
+      const anyOTP = await OTP.findOne({ userId: decoded.id, isUsed: false });
+      if (anyOTP) {
+        console.log(`⚠️  Found unused OTP but doesn't match: "${anyOTP.otp}"`);
+      } else {
+        console.log(`❌ No unused OTP found for this user`);
+      }
+    }
 
     if (!otpRecord) {
       return res.status(400).json({ message: 'Invalid or expired OTP' });
@@ -275,6 +294,9 @@ router.post('/resend-otp', [
         otp: otp
       });
       await otpRecord.save();
+
+      // Log OTP to console for development/testing
+      console.log(`\n🔐 Resent OTP for ${user.email}: ${otp}\n`);
 
       // Send OTP email
       await sendOTPEmail(user.email, otp, user.firstName);
