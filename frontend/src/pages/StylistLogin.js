@@ -39,6 +39,7 @@ const StylistLogin = () => {
 
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('userPassword', formData.password); // Store password for encryption/decryption
       login(user, token);
       navigate('/stylist-dashboard');
     } catch (err) {

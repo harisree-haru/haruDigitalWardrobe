@@ -20,7 +20,7 @@ const ViewOutfits = () => {
     try {
       setLoading(true);
       setError('');
-      const response = await axios.get('/api/outfits', {
+      const response = await axios.get('/api/outfits/list/my-outfits', {
         headers: {
           Authorization: `Bearer ${token}`
         }

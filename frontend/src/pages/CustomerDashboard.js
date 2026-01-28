@@ -52,19 +52,21 @@ const CustomerDashboard = () => {
                 <span className="btn-icon">👗</span>
                 <span className="btn-text">View Outfits</span>
               </button>
+              <button 
+                className="action-btn upload-design-btn"
+                onClick={() => navigate('/upload-design')}
+              >
+                <span className="btn-icon">🔐</span>
+                <span className="btn-text">Upload Design (Secure)</span>
+              </button>
+              <button 
+                className="action-btn my-designs-btn"
+                onClick={() => navigate('/my-designs')}
+              >
+                <span className="btn-icon">📋</span>
+                <span className="btn-text">My Designs</span>
+              </button>
             </div>
-          </div>
-
-          <div className="features">
-            <h3>Features</h3>
-            <ul>
-              <li>📸 Upload and manage your wardrobe items</li>
-              <li>👗 Create and save outfit combinations</li>
-              <li>✏️ Edit and organize your outfits</li>
-              <li>🎯 Get styling recommendations from stylists</li>
-              <li>📅 Plan outfits for upcoming events</li>
-              <li>💫 Browse stylist profiles and book consultations</li>
-            </ul>
           </div>
         </div>
       </div>

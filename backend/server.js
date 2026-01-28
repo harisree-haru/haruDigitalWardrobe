@@ -17,6 +17,8 @@ app.use(cors());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/outfits', require('./routes/outfits'));
 app.use('/api/users', require('./routes/users'));
+app.use('/api/designs', require('./routes/designs'));
+app.use('/api/stylists', require('./routes/stylists'));
 
 // Health check
 app.get('/api/health', (req, res) => {

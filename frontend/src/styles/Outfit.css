@@ -143,8 +143,74 @@
 }
 
 .btn-cancel:hover {
-  background-color: #e0e0e0;
-  border-color: #999;
+  background: #e0e0e0;
+}
+
+/* Radio Group Styling */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.radio-label {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.radio-label:hover {
+  border-color: #667eea;
+  background: #f8f9ff;
+}
+
+.radio-label input[type="radio"] {
+  margin-right: 10px;
+}
+
+.radio-label input[type="radio"]:checked + span {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.radio-label span {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.radio-label small {
+  color: #666;
+  font-size: 0.875rem;
+  margin-left: 28px;
+}
+
+/* Select Styling */
+select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+select option {
+  padding: 10px;
 }
 
 /* View Outfits */

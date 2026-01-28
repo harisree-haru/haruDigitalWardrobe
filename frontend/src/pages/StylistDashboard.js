@@ -52,18 +52,14 @@ const StylistDashboard = () => {
                 <span className="btn-icon">💡</span>
                 <span className="btn-text">Add Suggestion</span>
               </button>
+              <button 
+                className="action-btn my-designs-btn"
+                onClick={() => navigate('/my-designs')}
+              >
+                <span className="btn-icon">📋</span>
+                <span className="btn-text">My Designs</span>
+              </button>
             </div>
-          </div>
-
-          <div className="features">
-            <h3>Features</h3>
-            <ul>
-              <li>👥 View customer requests and consultations</li>
-              <li>🎨 Create and share styling advice</li>
-              <li>💼 Manage your stylist portfolio</li>
-              <li>⭐ View customer ratings and reviews</li>
-              <li>📊 Track your earnings and appointments</li>
-            </ul>
           </div>
         </div>
       </div>

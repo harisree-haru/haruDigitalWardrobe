@@ -61,6 +61,7 @@ const CustomerLogin = () => {
 
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('userPassword', formData.password); // Store for encryption
         login(user, token);
         navigate('/customer-dashboard');
       }
@@ -86,6 +87,7 @@ const CustomerLogin = () => {
 
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('userPassword', formData.password); // Store for encryption
       login(user, token);
       navigate('/customer-dashboard');
     } catch (err) {
@@ -132,6 +134,7 @@ const CustomerLogin = () => {
 
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('userPassword', formData.password); // Store for encryption
       login(user, token);
       navigate('/customer-dashboard');
     } catch (err) {

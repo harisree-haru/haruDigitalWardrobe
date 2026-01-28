@@ -122,23 +122,23 @@
 }
 
 .dashboard-actions {
-  background-color: #f9f9f9;
-  padding: 25px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  border-left: 4px solid #667eea;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  padding: 30px;
+  border-radius: 12px;
+  border: 2px solid rgba(102, 126, 234, 0.1);
 }
 
 .dashboard-actions h3 {
   color: #333;
-  margin-bottom: 20px;
-  font-size: 1.1rem;
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .action-buttons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
 }
 
 .action-btn {
@@ -146,51 +146,59 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 20px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
+  gap: 12px;
+  padding: 30px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
   background: white;
   cursor: pointer;
-  transition: all 0.3s;
-  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .action-btn:hover {
   border-color: #667eea;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+  background: white;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
 }
 
 .btn-icon {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .btn-text {
   text-align: center;
+  line-height: 1.4;
+}
+
+.upload-design-btn:hover {
+  border-color: #667eea;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.my-designs-btn:hover {
+  border-color: #764ba2;
+  background: linear-gradient(135deg, rgba(118, 75, 162, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%);
 }
 
 .add-outfit-btn:hover {
   border-color: #667eea;
-  color: #667eea;
 }
 
 .view-outfits-btn:hover {
   border-color: #667eea;
-  color: #667eea;
 }
 
 .suggestion-btn:hover {
   border-color: #f39c12;
-  color: #f39c12;
 }
 
 .manage-users-btn:hover {
   border-color: #e74c3c;
-  color: #e74c3c;
 }
 
 @media (max-width: 768px) {

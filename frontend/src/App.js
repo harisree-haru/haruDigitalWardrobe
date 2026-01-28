@@ -12,6 +12,9 @@ import AdminDashboard from './pages/AdminDashboard';
 import AddOutfit from './pages/AddOutfit';
 import ViewOutfits from './pages/ViewOutfits';
 import ManageUsers from './pages/ManageUsers';
+import DesignUpload from './pages/DesignUpload';
+import MyDesigns from './pages/MyDesigns';
+import AddSuggestion from './pages/AddSuggestion';
 import './App.css';
 
 const AppRoutes = () => {
@@ -55,6 +58,22 @@ const AppRoutes = () => {
         element={
           <PrivateRoute>
             <ViewOutfits />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/upload-design"
+        element={
+          <PrivateRoute>
+            <DesignUpload />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/my-designs"
+        element={
+          <PrivateRoute>
+            <MyDesigns />
           </PrivateRoute>
         }
       />

@@ -46,6 +46,38 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   },
+  // Encryption keys for secure design system
+  publicKey: {
+    type: String,
+    default: null
+  },
+  encryptedPrivateKey: {
+    type: String,
+    default: null
+  },
+  keyGeneratedAt: {
+    type: Date,
+    default: null
+  },
+  // Stylist-specific fields
+  isAvailable: {
+    type: Boolean,
+    default: function() {
+      return this.role === 'stylist' ? true : undefined;
+    }
+  },
+  maxAssignments: {
+    type: Number,
+    default: function() {
+      return this.role === 'stylist' ? 10 : undefined;
+    }
+  },
+  currentAssignments: {
+    type: Number,
+    default: function() {
+      return this.role === 'stylist' ? 0 : undefined;
+    }
+  },
   createdAt: {
     type: Date,
     default: Date.now

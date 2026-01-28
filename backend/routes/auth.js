@@ -6,6 +6,8 @@ const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
 const auth = require('../middleware/auth');
 const { generateOTP, sendOTPEmail } = require('../services/emailService');
+const { generateRSAKeyPair, encryptPrivateKey } = require('../services/encryptionService');
+const { logKeyGeneration } = require('../services/loggingService');
 
 // Generate JWT Token
 const generateToken = (id) => {
@@ -50,6 +52,19 @@ router.post('/signup', [
 
     await user.save();
 
+    // Auto-generate RSA key pair for encryption
+    console.log(`[${new Date().toISOString()}] [SIGNUP] 🔑 Auto-generating encryption keys for new user...`);
+    const { publicKey, privateKey } = generateRSAKeyPair();
+    const encryptedPrivateKey = encryptPrivateKey(privateKey, password);
+    
+    user.publicKey = publicKey;
+    user.encryptedPrivateKey = encryptedPrivateKey;
+    user.keyGeneratedAt = new Date();
+    await user.save();
+    
+    await logKeyGeneration(user._id, 'RSA-2048');
+    console.log(`[${new Date().toISOString()}] [SIGNUP] ✅ Encryption keys generated automatically`);
+
     // Create JWT Token
     const token = generateToken(user._id);
 
@@ -62,7 +77,8 @@ router.post('/signup', [
         email: user.email,
         firstName: user.firstName,
         lastName: user.lastName,
-        role: user.role
+        role: user.role,
+        hasEncryptionKeys: true
       }
     });
   } catch (error) {
